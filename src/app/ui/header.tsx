@@ -1,9 +1,13 @@
+'use client';
+
 import Link from "next/link"
 import Image from "next/image"
+import { usePathname } from "next/navigation";
 
 function Header() {
   const luping = ["home", "blogs", "partners", "contacts", "about"]
   const headerTitle = "NeonTech"
+  const pathName = usePathname()
   return (
     <header className="flex gap-2 p-2.5 bg-white">
       <Image

@@ -1,5 +1,5 @@
 import { title } from "process"
-import blogs from "../data/blogs.json"
+import blogs from "../data/blogs"
 
 function fetchy() {
     return blogs

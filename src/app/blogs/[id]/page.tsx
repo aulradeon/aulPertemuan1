@@ -1,4 +1,4 @@
-import content from "../../data/blogs.json"
+import content from "../../data/blogs"
 import {notFound} from "next/navigation"
 
 interface BlogPageProps {

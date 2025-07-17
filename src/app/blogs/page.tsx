@@ -1,14 +1,25 @@
-import data from "../data/blogs.json"
-import Link from "next/link"
+'use client'
 
-function Blogs() {
+import Link from "next/link"
+import { useState, useEffect } from 'react';
+
+function BlogsPage() {
+    const [blogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/blogs')
+            .then(response => response.json())
+            .then(data => setBlogs(data));
+    }, []);
+
+
     return (
         <div className="container mx-auto">
             <div className="flex flex-col gap-5 px-5 py-3 bg-purple-700">
                 <div className="">
                     <h1 className="font-bold text-3xl">Discover latest update about us</h1>
                 </div>
-            {data.map(item => {
+                {blogs.map((item: any) => {
                     return (
                         <div key={item.id} className="w-full p-2 border-4 border-black rounded-md bg-red-300">
                             <Link href={`/blogs/${item.id}`}>
@@ -27,4 +38,4 @@ function Blogs() {
     )
 }
 
-export default Blogs
+export default BlogsPage
