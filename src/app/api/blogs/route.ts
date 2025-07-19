@@ -1,7 +1,7 @@
 // app/api/users/route.js
-import { getData } from '../../data/data';
+import { getBlogs } from '@/app/lib/datafetch'
 
 export async function GET() {
-  const data = getData();
+  const data = await getBlogs();
   return Response.json(data);
 }

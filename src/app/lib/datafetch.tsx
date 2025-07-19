@@ -1,8 +1,3 @@
-import { title } from "process"
-import blogs from "../data/blogs"
+import blogs from "@/app/data/blogs"
 
-function fetchy() {
-    return blogs
-}
-
-export default fetchy
+export const getBlogs = () => blogs

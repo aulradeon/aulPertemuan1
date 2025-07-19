@@ -1,17 +1,8 @@
-'use client'
-
 import Link from "next/link"
-import { useState, useEffect } from 'react';
+import { getBlogs } from "../lib/datafetch"
 
-function BlogsPage() {
-    const [blogs, setBlogs] = useState([]);
-
-    useEffect(() => {
-        fetch('/api/blogs')
-            .then(response => response.json())
-            .then(data => setBlogs(data));
-    }, []);
-
+async function BlogsPage() {
+    const blogs = await getBlogs()
 
     return (
         <div className="container mx-auto">
