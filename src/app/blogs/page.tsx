@@ -1,8 +1,8 @@
 import Link from "next/link"
-import { getBlogs } from "../lib/datafetch"
+import { localENV } from "../lib/config"
 
 async function BlogsPage() {
-    const blogs = await getBlogs()
+    const blogs = await fetch(localENV("/api/blogs")).then(res => res.json()).catch(err => console.log(err))
 
     return (
         <div className="container mx-auto">
@@ -23,7 +23,6 @@ async function BlogsPage() {
                         </div>
                     )
                 })}
-
             </div>
         </div>
     )
